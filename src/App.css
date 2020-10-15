@@ -33,5 +33,42 @@ footer {
   flex-direction: column;
   justify-content: center;
   height: 90vh;
-  
+
+}
+
+.loading-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+
+}
+
+.data-div {
+  padding: 20px;
+}
+
+.button {
+  background-color: #373a40;
+  border: 1px solid #563d7c;
+  color: #eeeeee;
+  width: auto;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.button:hover {
+  background-color: #333;
+  border: 1px solid #563d7c;
+  color: #19d3da;
+
+}
+.data-divs {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

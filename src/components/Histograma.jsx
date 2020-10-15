@@ -82,6 +82,7 @@ const BarChart = ({xdim, ydim, margin, xdata, ydata}) => {
        .attr("x", -(margin.top + margin.bottom + ydim) / 2)
        .attr("y", margin.left / 2)
        .attr("transform", `rotate(-90, ${margin.left / 2}, ${margin.top / 2})`);
+
   }
 
   const xscale = d3.scaleBand()

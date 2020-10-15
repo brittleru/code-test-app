@@ -39,6 +39,8 @@ const BarChart = ({xdim, ydim, margin, xdata, ydata}) => {
     svg.append("g")
        .call(yAxis)
        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+
   }
 
   // Adding the chart stuff
@@ -67,6 +69,7 @@ const BarChart = ({xdim, ydim, margin, xdata, ydata}) => {
        })
        .attr("fill", "#19d3da")
        .attr("stroke", "rgba(0, 0, 0, 0.3)");
+
   }
 
   // Title of the graph
@@ -83,6 +86,7 @@ const BarChart = ({xdim, ydim, margin, xdata, ydata}) => {
        .attr("y", margin.left / 2)
        .attr("transform", `rotate(-90, ${margin.left / 2}, ${margin.top / 2})`);
 
+
   }
 
   const xscale = d3.scaleBand()
@@ -93,6 +97,7 @@ const BarChart = ({xdim, ydim, margin, xdata, ydata}) => {
   const yscale = d3.scaleLinear()
                    .domain([0, d3.max(ydata)])
                    .range([ydim, 0]);
+
 
 
   return (

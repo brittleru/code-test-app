@@ -132,7 +132,6 @@ class App extends Component {
                    <hr style={{color: "#19d3da",
                                  backgroundColor: "#19d3da",
                                  borderTop: "1px solid #19d3da",
-
                                  borderRadius: 40,
                                  width: "70%"
                                }}

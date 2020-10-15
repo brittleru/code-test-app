@@ -41,7 +41,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   height: 90vh;
-
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .data-div {

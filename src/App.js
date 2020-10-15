@@ -13,7 +13,7 @@ const client = new ApolloClient({
 // My Query of posts
 const postsQuery = gql `
 {
-  allPosts(count: 5) {
+  allPosts(count: 100) {
     id
     title
     body
@@ -33,7 +33,22 @@ const postsQuery = gql `
 client.query({
     query: postsQuery
   }).then(res => {
-    console.log(res);
+    let dataForX = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let dataForY = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    for (let i = 0; i < res.data.allPosts.length; i++) {
+      let num = parseFloat(res.data.allPosts[`${i}`]["createdAt"]);
+      let theData = moment(new Date(num)).format("MMM Do YY");
+      for(let j = 0; j < dataForY.length; j++) {
+        if (theData.includes(dataForY[j])) {
+          dataForX[j] += 1;
+        }
+      }
+      console.log(theData);
+    }
+
+    console.log(dataForX);
+    return dataForX;
   });
 
 

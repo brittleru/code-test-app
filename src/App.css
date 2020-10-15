@@ -21,8 +21,9 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   color: #eeeeee;
-  bottom: 0;
-
+  bottom: auto;
+  position: absolute;
+  width: 100%;
+  height: 30px;
 }

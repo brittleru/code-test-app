@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Brief
 
-## Available Scripts
+Develop a JavaScript web application that fetches a relevantly-sized list of posts from the mock [GraphQL API](https://fakerql.stephix.uk/) available at https://fakerql.stephix.uk/ and displays a histogram representing the number of posts created in each month of 2019.
 
-In the project directory, you can run:
+## Requirements and Suggestions
 
-### `npm start`
+The application must be built using React, how you scaffold it is up to you. <br>
+We use Apollo for GraphQL API communication, but you can use a different solution if you feel it is better suited. <br>
+The histogram must be constructed using D3 or VX (recommended). <br>
+Use Git for version control and to commit any progress you make. <br>
+Write a brief summary in your README about your process, your choices and any challenges you faced. <br>
+Please do not spend more than 4 hours on development for this task, just submit your progress at the end of that time. <br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## My Solution
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+I used Apollo for the GraphQL API communication at https://fakerql.stephix.uk/graphql. 
 
-### `npm test`
+**const client = new ApolloClient({uri: `https://fakerql.stephix.uk/graphql`});**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After that I made the query of posts using `allPosts(count: number){createdAt}` so I could get the data needed in order to plot it, the number from `count: number` represents the number of posts you want to generate. Here I was stuck for a bit because I didn't know what that `createdAt` result might mean (it was a number as `1560918569883`), but after some research I learned that this result might a number so PCs can read the date, https://www.epochconverter.com/ this site for reference.<br>
 
-### `npm run build`
+After I learned about epochconverter I used `moment.js` in order to translate it to human readable date. <br>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+So I got my data set for plotting and started to build a new component in order to visualisate the data. I used `d3` and the react hooks `useEffect` and `useRef`. At first I hardcoded the data for `Y axis` so I could build a better data chart. After that I used the same thinking that I used earlier for the `client.query` in order to work with all kind of data<br>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Finally I build a button that can `show` or `hide` the raw data if you would like to.
+ 
+ 
+## Future Improvments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I would like to add an input for the user to get as many posts they want. <br>
 
-### `npm run eject`
+I would like to add more data about the chart when you hover on any bar, like number of posts. <br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+And I want to make raw data more prettier when you choose to show it.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

@@ -24,6 +24,12 @@ After I learned about epochconverter I used `moment.js` in order to translate it
 So I got my data set for plotting and started to build a new component in order to visualisate the data. I used `d3` and the react hooks `useEffect` and `useRef`. At first I hardcoded the data for `Y axis` so I could build a better data chart. After that I used the same thinking that I used earlier for the `client.query` in order to work with all kind of data<br>
 
 Finally I build a button that can `show` or `hide` the raw data if you would like to.
+
+## Screenshots
+
+![alt text](https://i.ibb.co/mDykRWk/data-Chart.png)
+
+![alt text](https://i.ibb.co/2SqWQrw/data.png)
  
  
 ## Future Improvments
